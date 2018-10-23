@@ -61,11 +61,11 @@ begin
   if stdout
     case stdout.strip
     when '3da21691-e39d-4da6-8a4b-b43877bcb1b7'
-      cmd_string = "powershell -command \"Import-Module PSWindowsUpdate; Get-WUInstall -KBArticleID '#{params['kb_id']}' -AcceptAll #{allow_reboot}\""
+      cmd_string = "powershell -command \"Import-Module PSWindowsUpdate; Get-WUInstall -KBArticleID '#{params['kb_id']}' -verbose -IgnoreUserInput -Download -Install -AcceptAll #{allow_reboot}\""
     when '9482f4b4-e343-43b6-b170-9a65bc822c77'
-      cmd_string = "powershell -command \"Import-Module PSWindowsUpdate; Get-WUInstall -WindowsUpdate -KBArticleID '#{params['kb_id']}' -AcceptAll #{allow_reboot}\""
+      cmd_string = "powershell -command \"Import-Module PSWindowsUpdate; Get-WUInstall -WindowsUpdate -KBArticleID '#{params['kb_id']}' -verbose -IgnoreUserInput -Download -Install -AcceptAll #{allow_reboot}\""
     when '7971f918-a847-4430-9279-4a52d1efe18d'
-      cmd_string = "powershell -command \"Import-Module PSWindowsUpdate; Get-WUInstall -MicrosoftUpdate -KBArticleID '#{params['kb_id']}' -AcceptAll #{allow_reboot}\""
+      cmd_string = "powershell -command \"Import-Module PSWindowsUpdate; Get-WUInstall -MicrosoftUpdate -KBArticleID '#{params['kb_id']}' -verbose -IgnoreUserInput -Download -Install -AcceptAll #{allow_reboot}\""
     else
       puts 'No Update Services configured'
       exit 0
