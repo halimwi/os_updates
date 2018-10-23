@@ -47,7 +47,7 @@ end
 
 begin
   # Find if we are using WSUS or Windows Update
-  manager_cmd = "powershell -command \"Import-Module PSWindowsUpdate; Get-WUServiceManager | Where-Object {$_.IsManaged -eq 'true'} | foreach {$_.ServiceID}\""
+  manager_cmd = "powershell -command \"Import-Module PSWindowsUpdate; Get-WUServiceManager | Where-Object {$_.IsDefaultAUService} | foreach {$_.ServiceID}\""
   stdout, stderr, status = Open3.capture3(manager_cmd)
   raise 'Cannot get Windows Update configurations', stderr if status != 0
   # Determine which service is enable can use that to apply patches and updates
