@@ -55,7 +55,7 @@ begin
   if params['allow_reboot'] == false
     allow_reboot = '-IgnoreReboot'
   else
-    allow_reboot = ''
+    allow_reboot = '-AutoReboot'
   end
   # rubocop:enable Style/ConditionalAssignment
   if stdout
