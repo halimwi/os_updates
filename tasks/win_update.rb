@@ -72,7 +72,7 @@ begin
     end
     # run the relevant command
     stdout, _stderr, status = Open3.capture3(cmd_string)
-    if status.zero?
+    if stdout && !stdout.nil? && !stdout.empty?
       puts stdout.strip
       exit 0
     else
